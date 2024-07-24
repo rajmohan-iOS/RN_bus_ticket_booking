@@ -8,7 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HelpModel from '../models/HelpModel';
 
 
-const ProfileScreen = () => {
+const ProfileScreen = ({navigation}) => {
 
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -27,8 +27,8 @@ const ProfileScreen = () => {
                         <Text style={styles.SubTitleText}>My details</Text>
                         <ProfileComponent title={'Booking History'} image={require('../assets/Booking.png')} onPress={console.log('clicked')} />
                         <ProfileComponent title={'Cancel Booking'} image={require('../assets/CancelBooking.png')} onPress={console.log('clicked')} />
-                        <ProfileComponent title={'Personal Informationy'} image={require('../assets/PersonalInfo.png')} onPress={console.log('clicked')} />
-                        <ProfileComponent title={'Passengers'} image={require('../assets/passenger.png')} onPress={console.log('clicked')} />
+                        <ProfileComponent title={'Personal Informationy'} image={require('../assets/PersonalInfo.png')} onPress={() => navigation.navigate('PersonalInformation')} />
+                        <ProfileComponent title={'Passengers'} image={require('../assets/passenger.png')} onPress={() => navigation.navigate('Passengers')} />
                     </View>
 
                     <View style={styles.subtitleView}>
