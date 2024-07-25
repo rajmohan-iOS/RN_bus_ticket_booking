@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, ScrollView, View, Text, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, SafeAreaView, ScrollView, View, Text, TouchableOpacity, Image, ImageBackground } from "react-native";
 import ProfileComponent from "../../component/ProfileComponent";
 
 
@@ -7,13 +7,11 @@ const Passengers = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView style={styles.scrollView}>
-
+            <ImageBackground source={require('../../assets/appBackgroundImage.png')} style={{ height: '100%', width: '100%' }} >
                 <View style={styles.view}>
                     <View style={styles.detailView}>
-                        <ProfileComponent title={'Mithun Kumar'} value={'Male, 24 years'} titleStyle={styles.titleStyle} valueStyle={styles.valueStyle} />
-                        <ProfileComponent title={'Mithun '} value={'Male, 27 years'} titleStyle={styles.titleStyle} valueStyle={styles.valueStyle} />
-
+                        <ProfileComponent title={'Mithun Kumar'} value={'Male, 24 years'} titleStyle={styles.titleStyle} valueStyle={styles.valueStyle} divider={true} />
+                        <ProfileComponent title={'Mithun '} value={'Male, 27 years'} titleStyle={styles.titleStyle} valueStyle={styles.valueStyle} divider={true} />
                     </View>
 
                     <TouchableOpacity style={styles.submitView} >
@@ -21,11 +19,9 @@ const Passengers = () => {
                         <Text style={styles.submitText}>Add new passenger</Text>
                     </TouchableOpacity>
                 </View>
-
-            </ScrollView>
+            </ImageBackground>
         </SafeAreaView>
     )
-
 }
 
 const styles = StyleSheet.create({
@@ -35,25 +31,20 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     scrollView: {
-        // marginTop: 20,
-        // display: 'flex',
-        // flexDirection: 'column',
-        padding: 20,
-        // gap: 20,
+
     },
     view: {
-        // flex: 1,
-        display:'flex',
+        flex: 1,
+        padding: 20,
         justifyContent: 'space-between',
-        height: 700,
-        // backgroundColor: '#000',
     },
     detailView: {
         display: 'flex',
-        gap: 20
+        gap: 20,
+        padding: 10
     },
     titleStyle: {
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: '600',
         lineHeight: 20,
         color: '#1F487C'
@@ -68,6 +59,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#1F487C',
         borderRadius: 25,
         padding: 15,
+        marginBottom: 20
     },
     submitText: {
         fontSize: 16,

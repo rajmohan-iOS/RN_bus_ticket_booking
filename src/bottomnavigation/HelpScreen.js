@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, View, TouchableOpacity, Text, Image, StyleSheet, ScrollView } from "react-native";
+import { SafeAreaView, View, TouchableOpacity, Text, Image, StyleSheet, ScrollView, ImageBackground } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 
 
@@ -8,62 +8,66 @@ const HelpScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView>
-                <View style={styles.ScroView}>
-                    <View>
-                        <Text style={styles.firstText}>Get in Touch</Text>
-                    </View>
+            <ImageBackground source={require('../assets/appBackgroundImage.png')} style={{ height: '100%', width: '100%' }} >
+                <ScrollView>
 
-                    <View>
-                        <Text style={styles.contentText}>If you have any inquiries get in touch with us. We’ll be happy to help you.</Text>
-                    </View>
-
-                    <View style={styles.phoneView}>
-
-
-                        <Image source={require('../assets/phone.png')} />
-                        <View style={styles.phoneTextView}>
-                            <Text style={styles.phoneText}>+91 9988776655</Text>
-                        </View>
-
-                    </View>
-
-                    <View style={styles.phoneView}>
-                        <Image source={require('../assets/mail.png')} />
-
-                        <View style={styles.phoneTextView}>
-                            <Text style={styles.phoneText}>info@theebusstand.com</Text>
-                        </View>
-                    </View>
-
-                    <View>
-                        <Text style={styles.firstText}>Feel free to ask your query :)</Text>
-                    </View>
-
-                    <View style={styles.helpView} >
+                    <View style={styles.ScroView}>
                         <View>
-                            <Text style={styles.nameText}>Name*</Text>
-                            <TextInput style={styles.nameTexfield} />
+                            <Text style={styles.firstText}>Get in Touch</Text>
                         </View>
 
                         <View>
-                            <Text style={styles.nameText}>Email*</Text>
-                            <TextInput style={styles.nameTexfield} />
+                            <Text style={styles.contentText}>If you have any inquiries get in touch with us. We’ll be happy to help you.</Text>
+                        </View>
+
+                        <View style={styles.phoneView}>
+
+
+                            <Image source={require('../assets/phone.png')} />
+                            <View style={styles.phoneTextView}>
+                                <Text style={styles.phoneText}>+91 9988776655</Text>
+                            </View>
+
+                        </View>
+
+                        <View style={styles.phoneView}>
+                            <Image source={require('../assets/mail.png')} />
+
+                            <View style={styles.phoneTextView}>
+                                <Text style={styles.phoneText}>info@theebusstand.com</Text>
+                            </View>
                         </View>
 
                         <View>
-                            <Text style={styles.nameText}>Message*</Text>
-                            <TextInput style={[styles.nameTexfield, { minHeight: 150 }]} multiline />
+                            <Text style={styles.firstText}>Feel free to ask your query :)</Text>
                         </View>
+
+                        <View style={styles.helpView} >
+                            <View>
+                                <Text style={styles.nameText}>Name*</Text>
+                                <TextInput style={styles.nameTexfield} />
+                            </View>
+
+                            <View>
+                                <Text style={styles.nameText}>Email*</Text>
+                                <TextInput style={styles.nameTexfield} />
+                            </View>
+
+                            <View>
+                                <Text style={styles.nameText}>Message*</Text>
+                                <TextInput style={[styles.nameTexfield, { minHeight: 150 }]} multiline />
+                            </View>
+
+                        </View>
+
+                        <TouchableOpacity style={styles.submitView} >
+                            <Text style={styles.submitText}>Submit</Text>
+                        </TouchableOpacity>
 
                     </View>
 
-                    <TouchableOpacity style={styles.submitView} >
-                        <Text style={styles.submitText}>Submit</Text>
-                    </TouchableOpacity>
-
-                </View>
-            </ScrollView>
+                </ScrollView>
+            </ImageBackground>
         </SafeAreaView>
     )
 

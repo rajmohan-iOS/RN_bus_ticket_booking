@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, ScrollView, View, Text, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, SafeAreaView, ScrollView, View, Text, TouchableOpacity, Image, ImageBackground } from "react-native";
 import PersonalDetailsComponent from "../../component/PersonalDetailsComponent";
 import ContactDetailsComponent from "../../component/ContactDetailsComponent";
 
@@ -7,20 +7,20 @@ const PersonalInformation = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView style={styles.scrollView} >
+            <ImageBackground source={require('../../assets/appBackgroundImage.png')} style={{ height: '100%', width: '100%' }} >
+                <ScrollView style={styles.scrollView} >
+                    <View style={styles.scrollView}>
+                        <PersonalDetailsComponent />
 
-                <View style={styles.scrollView}>
-                    <PersonalDetailsComponent />
+                        <ContactDetailsComponent />
 
-                    <ContactDetailsComponent />
-
-                    <TouchableOpacity style={styles.submitView} >
-                    <Image />
-                    <Text style={styles.submitText}>Add new passenger</Text>
-                </TouchableOpacity>
-                </View>
-
-            </ScrollView>
+                        <TouchableOpacity style={styles.submitView} >
+                            <Image />
+                            <Text style={styles.submitText}>Add new passenger</Text>
+                        </TouchableOpacity>
+                    </View>
+                </ScrollView>
+            </ImageBackground>
         </SafeAreaView>
     )
 

@@ -3,18 +3,18 @@ import { View, Image, TouchableOpacity, Text, StyleSheet } from "react-native";
 
 
 
-const ProfileComponent = ({ image, title, onPress, value, titleStyle, valueStyle }) => {
+const ProfileComponent = ({ image, title, onPress, value, titleStyle, valueStyle, imageStyle, componentStyle, divider }) => {
 
     return (
 
         <TouchableOpacity onPress={onPress}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
+            <View style={[componentStyle ? componentStyle : { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }]}>
                 <View style={{ flexDirection: 'row', gap: 10, alignItems: 'center' }}>
-                    <Image resizeMode='contain' style={{ height: 30, width: 30 }} source={image} />
+                    <Image resizeMode='contain' style={[imageStyle ? imageStyle : { height: 30, width: 30 }]} source={image} />
                     <View>
-                        <Text style={[ titleStyle ? titleStyle : styles.titleText, ]}>{title}</Text>
+                        <Text style={[titleStyle ? titleStyle : styles.titleText,]}>{title}</Text>
 
-                        {value && <Text style={[ valueStyle ? valueStyle : styles.valueText]}>{value}</Text>}
+                        {value && <Text style={[valueStyle ? valueStyle : styles.valueText]}>{value}</Text>}
                     </View>
 
                 </View>
@@ -23,8 +23,10 @@ const ProfileComponent = ({ image, title, onPress, value, titleStyle, valueStyle
                     <Image source={require('../assets/Arrow.png')} />
                 </View>
             </View>
+            {divider === true &&
+                <View style={styles.dividerView} />
+            }
 
-            <View style={styles.dividerView} />
         </TouchableOpacity>
 
     )

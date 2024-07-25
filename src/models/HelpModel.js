@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
-import { Alert, Modal, StyleSheet, Text, Pressable, View, TouchableOpacity } from 'react-native';
+import { Alert, Modal, StyleSheet, Text, Pressable, View, TouchableOpacity, ImageBackground } from 'react-native';
 import ProfileComponent from '../component/ProfileComponent';
 
 const HelpModel = ({ visible, onPress, closeModel }) => {
 
     return (
         <Modal animationType='slide' transparent={true} visible={visible}  >
+
             <View style={styles.centeredView}>
+                {/* <ImageBackground source={require('../assets/appBackgroundImage.png')} style={{ height: '100%'}} > */}
                 <View style={styles.modalView}>
                     <Text style={styles.modalText}>Help</Text>
-                    <ProfileComponent title={'Mail us'} image={require('../assets/mail.png')} value={'info@theebusstand.com'} onPress={closeModel} titleStyle={styles.titleText} valueStyle={styles.titleText} />
-                    <ProfileComponent title={'Call us'} image={require('../assets/phone.png')} value={'+91 9988776655'} titleStyle={styles.titleText} valueStyle={styles.titleText} />
+                    <ProfileComponent title={'Mail us'} image={require('../assets/mail.png')} value={'info@theebusstand.com'} onPress={closeModel} titleStyle={styles.titleText} valueStyle={styles.titleText} divider={true} />
+                    <ProfileComponent title={'Call us'} image={require('../assets/phone.png')} value={'+91 9988776655'} titleStyle={styles.titleText} valueStyle={styles.titleText} divider={true} />
                 </View>
+                {/* </ImageBackground> */}
             </View>
+
         </Modal>
     );
 };
@@ -21,7 +25,7 @@ const styles = StyleSheet.create({
     centeredView: {
         flex: 1,
         justifyContent: 'flex-end',
-        
+
     },
     modalView: {
         // height: 60,
